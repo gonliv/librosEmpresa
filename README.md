@@ -1,4 +1,4 @@
-# Titulo del proyecto
+# Libros Plus
 
 Las principales características del proyecto incluirán:
 
@@ -17,8 +17,17 @@ LibrosPlus es una aplicación web desarrollada en Django que ofrece a los usuari
 
 Incluir capturas de pantalla o imágenes que muestren el proyecto en funcionamiento.
 
-![Home](imagenes/home.png)
+![Home](imagenes/vista-inicio.JPG)
 Vista inicio de la aplicación.
+
+![Login](imagenes/login.JPG)
+Vista login de la aplicación.
+
+![Registro](imagenes/registro.JPG)
+Vista registro de la aplicación.
+
+![Registro](imagenes/biblioteca.JPG)
+Vista library de la aplicación.
 
 ## Configuración del proyecto
 
