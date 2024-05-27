@@ -1,0 +1,63 @@
+[
+  {
+    "model": "librosApp.customuser",
+    "pk": 1,
+    "fields": {
+      "email": "administrador@mail.com",
+      "password": "hashed_admin_password",
+      "first_name": "Admin",
+      "last_name": "User",
+      "user_type": "admin"
+    }
+  },
+  {
+    "model": "librosApp.customuser",
+    "pk": 2,
+    "fields": {
+      "email": "lector@mail.com",
+      "password": "hashed_reader_password",
+      "first_name": "Reader",
+      "last_name": "User",
+      "user_type": "reader"
+    }
+  },
+  {
+    "model": "librosApp.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Doe"
+    }
+  },
+  {
+    "model": "librosApp.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Fiction"
+    }
+  },
+  {
+    "model": "librosApp.book",
+    "pk": 1,
+    "fields": {
+      "title": "Book Title 1",
+      "author": 1,
+      "description": "Description of book 1",
+      "image": "path/to/image.jpg",
+      "category": "Category 1",
+      "publication_year": 2022,
+      "genres": [1]
+    }
+  },
+  {
+    "model": "librosApp.review",
+    "pk": 1,
+    "fields": {
+      "content": "Review content 1",
+      "rating": 5,
+      "publication_date": "2022-05-27T10:00:00Z",
+      "user": 2,
+      "book": 1
+    }
+  }
+]
