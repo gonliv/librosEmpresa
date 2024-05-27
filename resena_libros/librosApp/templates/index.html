@@ -1,0 +1,57 @@
+{% extends 'static_base.html' %}
+{% load static %}
+{% block 'content' %}
+
+<div class="container mt-5">
+  <h2 class="text-center mb-3">Nuestros Servicios</h2>
+  <hr class="mb-4">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-center">
+          <img src="{% static 'img/vivienda-social.png' %}" alt="Busca Propiedad" class="img-fluid mb-3">
+          <h4 class="mt-5">Busca una Propiedad</h4>
+          <p>Encuentra la casa o departamento de tus sueños con nuestra amplia selección de propiedades.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center mb-3">
+          <img src="{% static 'img/propiedad.png' %}" alt="Publica tu Vivienda" class="img-fluid mb-3">
+          <h4 class="mt-5">Publica tu Vivienda</h4>
+          <p>Pon tu vivienda en el mercado y llega a más personas interesadas en comprar o alquilar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container mt-5">
+  <h2 class="text-center mb-2">Nuestras Oficinas</h2>
+  <hr class="mb-4">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <h3>Una experiencia inmobiliaria sin limites</h3>
+          <p><strong>Dirección:</strong> Calle Falsa #123, Providencia</p>
+          <p><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 a 18:00 hrs</p>
+          <p><strong>Teléfono:</strong> +56 9 1111 1111</p>
+          <p><strong>Email:</strong> contacto@inmobiliariaplus.com</p>
+          <p>
+            <strong>Facebook:</strong> 
+            <a href="https://facebook.com/" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </p>
+          <p>
+            <strong>Instagram:</strong> 
+            <a href="https://instagram.com/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </p>
+      </div>
+      <div class="col-md-6 mb-5">
+          <div class="map-responsive">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1664.6239737977178!2d-70.63112797775379!3d-33.442846150646304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c578827e4387%3A0x1f0a8a9a724aeb5a!2sAlvarez%20Y%20Asociados%20Limitada!5e0!3m2!1ses!2scl!4v1714063961215!5m2!1ses!2scl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

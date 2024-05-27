@@ -1,0 +1,63 @@
+{% extends 'static_base.html' %}
+{% block 'header' %}
+{% endblock %}
+{% block 'content' %}
+<div id="Contacto" class="container my-5">
+
+    <h2 class="display-4 fw-bold text-center my-4">Contactanos</h2>
+
+    <p class="text-center my-4 d-none d-md-block">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Doloribus
+        sapiente, autem delectus totam expedita
+        animi corporis dolorem qui magnam, aspernatur officiis quasi culpa tempora est commodi. Voluptate beatae
+        tempora quaerat?</p>
+
+    <!-- Muestra los mensajes de error o éxito -->
+    {% if messages %}
+    <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        
+        <div class="form-group mb-4">
+            <label for="id_customer_name" class="mb-2">Nombre</label>
+            <input type="text" id="id_customer_name" name="customer_name" class="form-control" placeholder="Nombre" required value="{{ form.customer_name.value|default_if_none:'' }}">
+            {% if form.customer_name.errors %}
+            <div class="alert alert-danger">
+                {{ form.customer_name.errors }}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="id_customer_email" class="mb-2">Correo electrónico</label>
+            <input type="email" id="id_customer_email" name="customer_email" class="form-control" placeholder="Correo Electrónico" required value="{{ form.customer_email.value|default_if_none:'' }}">
+            {% if form.customer_email.errors %}
+            <div class="alert alert-danger">
+                {{ form.customer_email.errors }}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="id_message" class="mb-2">Mensaje</label>
+            <textarea id="id_message" name="message" class="form-control" placeholder="Escribe aquí tu mensaje" required>{{ form.message.value|default_if_none:'' }}</textarea>
+            {% if form.message.errors %}
+            <div class="alert alert-danger">
+                {{ form.message.errors }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="my-3 text-end">
+            <button class="btn btn-lg btn-info text-light" type="submit">Enviar</button>
+        </div>
+    </form>
+
+</div>  
+{% endblock %}
