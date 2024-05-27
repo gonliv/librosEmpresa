@@ -28,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+# LOGIN LOGOUT REDIRECT URLS
+
+LOGIN_REDIRECT_URL = '/welcome/'
+LOGOUT_REDIRECT_URL = '/'
+
+
 AUTH_USER_MODEL = 'librosApp.CustomUser'
 
 # Application definition

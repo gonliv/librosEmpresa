@@ -1,0 +1,10 @@
+{% extends "static_base.html" %}
+
+{% block 'content' %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        Logged out. Thanks for spending some quality time with the website today.
+    </div>
+    <a href="{% url 'index' %}" class="btn btn-primary">Go to Home</a>
+</div>
+{% endblock %}

@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from librosApp.views import index, contact, success, login_view, welcome, register_view
+from librosApp.views import index, contact, success, login_view, welcome, register_view, custom_logout_view, profile_view, library_view, book_detail_view
 from django.urls import include
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +27,7 @@ urlpatterns = [
     path("contact/", contact, name= "contact"),
     path("success/", success, name= "success"),
     path('login/', login_view, name='login'),
+    path('logout/', custom_logout_view, name='logout'),
     path("welcome/", welcome, name= "welcome"),
     path('password_change/', include('django.contrib.auth.urls'), name='password_change'),
     path('password_change/done/', include('django.contrib.auth.urls'), name='password_change_done'),
@@ -33,5 +36,10 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', include('django.contrib.auth.urls'), name='password_reset_confirm'),
     path('reset/done/', include('django.contrib.auth.urls'), name='password_reset_complete'),
     path('register/', register_view, name='register'),
+    path('profile/', profile_view, name='profile'),
+    path('library/', library_view, name='library'),
+    path('book_detail/<int:pk>/', book_detail_view, name='book_detail')
 
+    
+    
 ]

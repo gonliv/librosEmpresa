@@ -1,0 +1,43 @@
+{% extends 'static_base.html' %}
+{% load static %}
+{% block 'header' %}
+{% endblock %}
+
+{% block 'content' %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Datos personales del usuario -->
+        <div class="col-md-4">
+            <h2>Datos Personales</h2>
+            <p><strong>Nombre:</strong> {{ user.first_name }}</p>
+            <p><strong>Apellido:</strong> {{ user.last_name }}</p>
+            <p><strong>Correo Electrónico:</strong> {{ user.email }}</p>
+        </div>
+        <!-- Reseñas creadas por el usuario -->
+        <div class="col-md-4">
+            <h2>Reseñas Creadas</h2>
+            <ul class="list-group">
+                {% for review in user.reviews.all %}
+                    <li class="list-group-item">
+                        <strong>{{ review.book.title }}</strong>
+                        <p>{{ review.content }}</p>
+                        <p>Rating: {{ review.rating }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- Autores seguidos por el usuario -->
+        <div class="col-md-4">
+            <h2>Autores Seguidos</h2>
+            <ul class="list-group">
+                {% for author in user.followed_authors.all %}
+                    <li class="list-group-item">
+                        <strong>{{ author.first_name }} {{ author.last_name }}</strong>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
