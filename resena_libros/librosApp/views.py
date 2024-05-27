@@ -50,9 +50,9 @@ def register_view(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            user = authenticate(email=email, password=raw_password)
             login(request, user)
             return redirect('index')  # Redirigir al usuario a la página de inicio después del registro
     else:
