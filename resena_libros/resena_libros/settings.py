@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4+5l#x_w771#&6vcc!&h6pk937ku02(w2nwv5u0ym1j6ro2i%t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'librosApp'
 ]
 
 MIDDLEWARE = [
