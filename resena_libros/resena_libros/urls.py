@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from librosApp.views import index, contact, success, login_view, welcome, register_view, custom_logout_view, profile_view, library_view, book_detail_view
+from librosApp.views import index, contact, success, login_view, welcome, register_view, custom_logout_view, profile_view, library_view, book_detail_view, book_creation_view
 from django.urls import include
 from django.contrib.auth import views as auth_views
 
@@ -38,8 +38,7 @@ urlpatterns = [
     path('register/', register_view, name='register'),
     path('profile/', profile_view, name='profile'),
     path('library/', library_view, name='library'),
-    path('book_detail/<int:pk>/', book_detail_view, name='book_detail')
-
-    
+    path('book_detail/<int:pk>/', book_detail_view, name='book_detail'),
+    path('book_creation/', book_creation_view, name='book_creation'),   
     
 ]

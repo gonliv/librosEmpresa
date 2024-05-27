@@ -27,6 +27,7 @@
             <div class="ml-auto d-flex align-items-center">
                 {% if user.is_authenticated %}
                 <span class="navbar-text mr-5 fw-bold me-3">Hola, {{ user.first_name }}</span>
+                <a href="{% url 'profile' %}" class="btn btn-info me-2">Profile</a>
                 <a href="{% url 'logout' %}" class="btn btn-danger me-2">Log Out</a>
                 {% else %}
                 <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-lg btn-info text-light me-2">Log In</a>
@@ -38,11 +39,11 @@
     {% endblock %}
 
     {% block 'header' %}
-    <header id="Hero-Section" class="text-end py-5" style="background-image: url('static/img/bienes_raices.jpg'); background-size: cover;">
+    <header id="Hero-Section" class="text-end py-5" style="background-image: url('static/img/biblioteca-hero.jpg'); background-size: cover;">
         <div class="container text-black">
             <div class="ms-auto col-12 col-md-7 ">
                 <h1 class="display-1 fw-bold my-5">
-                    Inmobiliaria sin límites:   <br> Encuentra tu hogar
+                    Biblioteca digital sin límites:   <br> Encuentra tus libros
                 </h1>
                 <p class="my-5">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, accusamus iusto quibusdam
@@ -64,7 +65,7 @@
 
     {% block 'footer' %}
     <footer class="bg-dark text-center text-light p-4 mt-5">
-        <p class="mb-0">Inmuebles Plus. Todos los derechos reservados.</p>
+        <p class="mb-0">Libros Plus. Todos los derechos reservados.</p>
     </footer>
     {% endblock %}
     

@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser, Review
+from .models import CustomUser, Review, Book, Author, Genre
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -13,9 +13,18 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].required = False
 
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['content', 'rating']
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title', 'author', 'description', 'image', 'category', 'publication_year', 'genres']

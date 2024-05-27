@@ -5,15 +5,16 @@
 
 {% block 'content' %}
 <div class="container mt-5">
+    <h1>Welcome, {{ user.first_name }}!</h1>
     <div class="row">
-        <!-- Datos personales del usuario -->
+        <p>Welcome to your profile page.</p>
         <div class="col-md-4">
             <h2>Datos Personales</h2>
             <p><strong>Nombre:</strong> {{ user.first_name }}</p>
             <p><strong>Apellido:</strong> {{ user.last_name }}</p>
             <p><strong>Correo Electrónico:</strong> {{ user.email }}</p>
         </div>
-        <!-- Reseñas creadas por el usuario -->
+
         <div class="col-md-4">
             <h2>Reseñas Creadas</h2>
             <ul class="list-group">
@@ -26,7 +27,6 @@
                 {% endfor %}
             </ul>
         </div>
-        <!-- Autores seguidos por el usuario -->
         <div class="col-md-4">
             <h2>Autores Seguidos</h2>
             <ul class="list-group">
@@ -40,4 +40,11 @@
     </div>
 </div>
 
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <a href="{% url 'book_creation' %}" class="btn btn-primary">Add New Book</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
