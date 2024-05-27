@@ -1,0 +1,59 @@
+{% extends 'static_base.html' %}
+{% block 'header' %}
+{% endblock %}
+{% block 'navbar' %}
+{% endblock %}
+{% block 'content' %}
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          Iniciar sesión
+        </div>
+        <div class="card-body">
+          {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+              Su nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.
+            </div>
+          {% endif %}
+
+          {% if next %}
+            {% if user.is_authenticated %}
+              <div class="alert alert-warning" role="alert">
+                Su cuenta no tiene acceso a esta página. Para continuar, inicie sesión con una cuenta que tenga acceso.
+              </div>
+            {% else %}
+              <div class="alert alert-info" role="alert">
+                Por favor inicie sesión para ver esta página.
+              </div>
+            {% endif %}
+          {% endif %}
+
+          <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="id_username">{{ form.username.label }}</label>
+              <input type="text" name="{{ form.username.name }}" value="{{ form.username.value|default_if_none:'' }}" class="form-control" id="id_username" />
+            </div>
+            <div class="form-group mt-3">
+              <label for="id_password">{{ form.password.label }}</label>
+              <input type="password" name="{{ form.password.name }}" class="form-control" id="id_password" />
+            </div>
+            <input type="hidden" name="next" value="{% url 'welcome' %}">
+            <button type="submit" class="btn btn-primary mt-3">Iniciar sesión</button>
+          </form>
+          <div class="mt-3">
+            ¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate aquí</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

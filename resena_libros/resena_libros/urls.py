@@ -16,11 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from librosApp.views import index, contact, success
+from librosApp.views import index, contact, success, login_view, welcome, register_view
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name= "index"),
     path("contact/", contact, name= "contact"),
     path("success/", success, name= "success"),
+    path('login/', login_view, name='login'),
+    path("welcome/", welcome, name= "welcome"),
+    path('password_change/', include('django.contrib.auth.urls'), name='password_change'),
+    path('password_change/done/', include('django.contrib.auth.urls'), name='password_change_done'),
+    path('password_reset/', include('django.contrib.auth.urls'), name='password_reset'),
+    path('password_reset/done/', include('django.contrib.auth.urls'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', include('django.contrib.auth.urls'), name='password_reset_confirm'),
+    path('reset/done/', include('django.contrib.auth.urls'), name='password_reset_complete'),
+    path('register/', register_view, name='register'),
+
 ]

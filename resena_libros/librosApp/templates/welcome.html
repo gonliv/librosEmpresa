@@ -1,0 +1,22 @@
+{% extends 'static_base.html' %}
+{% load static %}
+{% block 'header' %}
+{% endblock %}
+
+{% block 'content' %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      {% if user.is_authenticated %}
+      <h1>Bienvenido a OnlyFlans</h1>
+      {% else %}
+      <h1>Bienvenidos a OnlyFlans</h1>
+      {% endif %}
+      <p class="lead mt-3">Explora nuestro delicioso mundo de flanes y postres, preparados con amor y dedicación en el corazón de Santiago.</p>
+      <img src="{% static 'img/flan-leche.jpg' %}" alt="Descripción de la imagen" class="img-fluid mt-4 mb-4">
+      <p class="mb-5">Disfruta de la experiencia OnlyFlans, donde cada bocado te lleva a un viaje de sabor y tradición.</p>
+      <a href="{% url 'index' %}" class="btn btn-primary mb-5">Productos</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
